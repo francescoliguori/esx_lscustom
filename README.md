@@ -1,4 +1,8 @@
 # esx_lscustom
+Edited by me(frank_l59), to add the possibility to change rear rim for motorbykes
+here a little demonstration -> https://streamable.com/lsmnrk
+This is based on ESX 1.0 
+I've edited only en.lua but it's easy to see what I've added
 
 ## Requirements
 - [esx_vehicleshop](https://github.com/ESX-Org/esx_vehicleshop)

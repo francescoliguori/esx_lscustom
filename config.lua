@@ -1,54 +1,36 @@
 Config                   = {}
 Config.DrawDistance      = 100.0
 Config.Locale            = 'en'
-Config.IsMechanicJobOnly = false
+Config.IsMechanicJobOnly = true
 
 Config.Zones = {
 
-	ls1 = {
-		Pos   = { x = -337.38, y = -136.92, z = 38.57},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	},
+		ls1 = {
+			Pos   = { x = -211.75, y = -1323.77, z = 30.00},
+			Size  = {x = 3.0, y = 3.0, z = 0.2},
+			Color = {r = 204, g = 204, b = 0},
+			Marker= 1,
+			--Name  = _U('blip_name'),
+			Hint  = _U('press_custom')
+		},
 
-	ls2 = {
-		Pos   = { x = -1155.53, y = -2007.18, z = 12.74},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	},
+		ls2 = {
+			Pos   = { x = -222.74, y = -1329.95, z = 30.00},
+			Size  = {x = 3.0, y = 3.0, z = 0.2},
+			Color = {r = 204, g = 204, b = 0},
+			Marker= 1,
+			--Name  = _U('blip_name'),
+			Hint  = _U('press_custom')
+		},
 
-	ls3 = {
-		Pos   = { x = 731.81, y = -1088.82, z = 21.73},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	},
-
-	ls4 = {
-		Pos   = { x = 1175.04, y = 2640.21, z = 37.32},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	},
-
-	ls5 = {
-		Pos   = { x = 110.99, y = 6626.39, z = 30.89},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	}
+		ls3 = {
+			Pos   = { x = -223.71, y = -1322.63, z = 30.00},
+			Size  = {x = 3.0, y = 3.0, z = 0.2},
+			Color = {r = 204, g = 204, b = 0},
+			Marker= 1,
+			--Name  = _U('blip_name'),
+			Hint  = _U('press_custom')
+		}
 
 }
 
@@ -671,8 +653,82 @@ Config.Menus = {
 		label = _U('wheels'),
 		parent = 'cosmetics',
 		modFrontWheelsTypes = _U('wheel_type'),
+		backwheels=	 _U('backwheels'),
 		modFrontWheelsColor = _U('wheel_color'),
 		tyreSmokeColor = _U('tiresmoke')
+	},
+	backwheels = {
+		label = _U('backwheels'),
+		parent = 'wheels',
+		modBackWheelsTypes = _U('wheel_type')
+	},
+	modBackWheelsTypes = {
+		label				= _U('wheel_type'),
+		parent				= 'backwheels',
+		modBackWheelsType0	= _U('sport'),
+		modBackWheelsType1	= _U('muscle'),
+		modBackWheelsType2	= _U('lowrider'),
+		modBackWheelsType3	= _U('suv'),
+		modBackWheelsType4	= _U('allterrain'),
+		modBackWheelsType5	= _U('tuning'),
+		modBackWheelsType6	= _U('motorcycle'),
+		modBackWheelsType7	= _U('highend')
+	},
+	modBackWheelsType0 = {
+		label = _U('sport'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 0,
+		price = 1.65
+	},
+	modBackWheelsType1 = {
+		label = _U('muscle'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 1,
+		price = 1.19
+	},
+	modBackWheelsType2 = {
+		label = _U('lowrider'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 2,
+		price = 1.65
+	},
+	modBackWheelsType3 = {
+		label = _U('suv'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 3,
+		price = 1.19
+	},
+	modBackWheelsType4 = {
+		label = _U('allterrain'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 4,
+		price = 1.19
+	},
+	modBackWheelsType5 = {
+		label = _U('tuning'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 5,
+		price = 1.52
+	},
+	modBackWheelsType6 = {
+		label = _U('motorcycle'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 6,
+		price = 1.26
+	},
+	modBackWheelsType7 = {
+		label = _U('highend'),
+		parent = 'modBackWheelsTypes',
+		modType = 24,
+		wheelType = 7,
+		price = 2.12
 	},
 	modFrontWheelsTypes = {
 		label				= _U('wheel_type'),

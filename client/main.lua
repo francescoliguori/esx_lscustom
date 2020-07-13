@@ -10,12 +10,6 @@ Citizen.CreateThread(function()
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
-
-	while ESX.GetPlayerData().job == nil do
-		Citizen.Wait(10)
-	end
-
-	PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterNetEvent('esx:playerLoaded')
@@ -55,7 +49,7 @@ function OpenLSMenu(elems, menuName, menuTitle, parent)
 		local isRimMod, found = false, false
 		local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
 
-		if data.current.modType == "modFrontWheels" then
+		if data.current.modType == "modFrontWheels" or data.current.modType == "modBackWheels" then
 			isRimMod = true
 		end
 
@@ -128,6 +122,7 @@ function UpdateMods(data)
 		
 		if data.wheelType then
 			props['wheels'] = data.wheelType
+			props['backwheels'] = data.wheelType
 			ESX.Game.SetVehicleProperties(vehicle, props)
 			props = {}
 		elseif data.modType == 'neonColor' then
@@ -287,6 +282,24 @@ function GetAction(data)
 								_label = GetLabelText(modName) .. ' - <span style="color:green;">$' .. price .. ' </span>'
 							end
 							table.insert(elements, {label = _label, modType = 'modFrontWheels', modNum = j, wheelType = v.wheelType, price = v.price})
+						end
+					end
+				elseif v.modType == 24 then -- REAR WHEELS RIM & TYPE
+					local props = {}
+					props['backwheels'] = v.wheelType
+					ESX.Game.SetVehicleProperties(vehicle, props)
+					local modCount = GetNumVehicleMods(vehicle, v.modType)
+					for j = 0, modCount, 1 do
+						local modName = GetModTextLabel(vehicle, v.modType, j)
+						if modName ~= nil then
+							local _label = ''
+							if j == currentMods.modBackWheels then
+								_label = GetLabelText(modName) .. ' - <span style="color:cornflowerblue;">'.. _U('installed') ..'</span>'
+							else
+								price = math.floor(vehiclePrice * v.price / 100)
+								_label = GetLabelText(modName) .. ' - <span style="color:green;">$' .. price .. ' </span>'
+							end
+							table.insert(elements, {label = _label, modType = 'modBackWheels', modNum = j, wheelType = v.wheelType, price = v.price})
 						end
 					end
 				elseif v.modType == 11 or v.modType == 12 or v.modType == 13 or v.modType == 15 or v.modType == 16 then

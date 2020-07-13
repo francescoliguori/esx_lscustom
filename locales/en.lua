@@ -1,4 +1,7 @@
 Locales['en'] = {
+   -- added--
+   ['backwheels'] = 'back wheel',    
+   -- end added --
   ['by_default'] = 'default',
   ['installed'] = 'installed',
   ['already_own'] = 'you already own: ~b~%s~s~',
