@@ -122,7 +122,6 @@ function UpdateMods(data)
 		
 		if data.wheelType then
 			props['wheels'] = data.wheelType
-			props['backwheels'] = data.wheelType
 			ESX.Game.SetVehicleProperties(vehicle, props)
 			props = {}
 		elseif data.modType == 'neonColor' then
