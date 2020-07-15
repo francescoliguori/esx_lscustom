@@ -285,7 +285,7 @@ function GetAction(data)
 					end
 				elseif v.modType == 24 then -- REAR WHEELS RIM & TYPE
 					local props = {}
-					props['backwheels'] = v.wheelType
+					props['wheels'] = v.wheelType
 					ESX.Game.SetVehicleProperties(vehicle, props)
 					local modCount = GetNumVehicleMods(vehicle, v.modType)
 					for j = 0, modCount, 1 do
